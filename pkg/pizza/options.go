@@ -1,9 +1,15 @@
 package pizza
 
+import "slices"
+
 type Option func(*Pizza)
 
 func WithTopping(topping Topping) Option {
 	return func(p *Pizza) {
+		if slices.Contains(p.Toppings, topping) {
+			return
+		}
+
 		p.Toppings = append(p.Toppings, topping)
 	}
 }
