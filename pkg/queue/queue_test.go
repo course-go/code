@@ -11,7 +11,7 @@ func TestQueueEmpty(t *testing.T) {
 
 	actual := q.Values()
 
-	assert.Equal(t, 0, len(actual))
+	assert.Empty(t, actual)
 }
 
 func TestQueuePushBack(t *testing.T) {
